@@ -1,1 +1,1 @@
-**Templates, ext. scripts and other stuff for WiFi-ZBX instance**
+**Templates, ext. scripts and other stuff for Zabbix**
