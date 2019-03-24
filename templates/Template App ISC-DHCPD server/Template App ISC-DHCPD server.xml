@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-02-06T20:43:48Z</date>
+    <date>2019-03-24T22:50:54Z</date>
     <groups>
+        <group>
+            <name>Templates</name>
+        </group>
         <group>
             <name>Templates/Applications</name>
         </group>
@@ -11,33 +14,45 @@
         <template>
             <template>Template App ISC-DHCPD server</template>
             <name>Template App ISC-DHCPD server</name>
-            <description>Для работы LLD нужен userparameter и утилита dhcpd-pools.sourceforge.net</description>
+            <description>Для работы LLD нужен userparameter, утилита dhcpd-pools.sourceforge.net, программа jq</description>
             <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
                 <group>
                     <name>Templates/Applications</name>
                 </group>
             </groups>
             <applications>
                 <application>
-                    <name>dhcp status</name>
+                    <name>dhcp.config:</name>
                 </application>
                 <application>
-                    <name>DHCP_%</name>
+                    <name>dhcp.log:</name>
                 </application>
                 <application>
-                    <name>DHCP_config</name>
+                    <name>dhcp.pool.free:</name>
                 </application>
                 <application>
-                    <name>DHCP_log</name>
+                    <name>dhcp.pool.js:</name>
                 </application>
                 <application>
-                    <name>DHCP_pool</name>
+                    <name>dhcp.pool.max:</name>
                 </application>
                 <application>
-                    <name>DHCP_stat</name>
+                    <name>dhcp.pool.stat.touch:</name>
                 </application>
                 <application>
-                    <name>DHCP_use</name>
+                    <name>dhcp.pool.use.%:</name>
+                </application>
+                <application>
+                    <name>dhcp.pool.use:</name>
+                </application>
+                <application>
+                    <name>dhcp.stat:</name>
+                </application>
+                <application>
+                    <name>dhcp.status:</name>
                 </application>
                 <application>
                     <name>Services</name>
@@ -45,12 +60,53 @@
             </applications>
             <items>
                 <item>
-                    <name>dhcpd-pools stat json</name>
+                    <name>dhcpd-pools all pools stats</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>dhcpd-pools.json</key>
-                    <delay>60s</delay>
+                    <key>dhcp.pools.all</key>
+                    <delay>1m</delay>
+                    <history>90d</history>
+                    <trends>0</trends>
+                    <status>1</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>dhcp.stat:</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>dhcp pools statistics</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>dhcp.pools.summary</key>
+                    <delay>1m</delay>
                     <history>90d</history>
                     <trends>0</trends>
                     <status>0</status>
@@ -76,7 +132,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -117,7 +173,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -130,7 +186,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -165,7 +221,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -178,7 +234,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -213,7 +269,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -226,7 +282,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -261,7 +317,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -274,7 +330,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -309,7 +365,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -322,7 +378,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -357,7 +413,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -370,7 +426,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -405,7 +461,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -418,7 +474,7 @@
                     </preprocessing>
                     <jmx_endpoint/>
                     <master_item>
-                        <key>dhcpd-pools.json</key>
+                        <key>dhcp.pools.summary</key>
                     </master_item>
                 </item>
                 <item>
@@ -453,7 +509,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -475,7 +531,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>lease_file_mtime_age</key>
-                    <delay>60s</delay>
+                    <delay>1m</delay>
                     <history>90d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -501,7 +557,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -511,7 +567,7 @@
                     <master_item/>
                 </item>
                 <item>
-                    <name>dhcpd logfile</name>
+                    <name>dhcpd logfile (filtered)</name>
                     <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -538,11 +594,11 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <description/>
+                    <description>See @isc-dhcp_log_filter global regexp</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_log</name>
+                            <name>dhcp.log:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -583,7 +639,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>dhcp status</name>
+                            <name>dhcp.status:</name>
                         </application>
                         <application>
                             <name>Services</name>
@@ -629,7 +685,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_stat</name>
+                            <name>dhcp.stat:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -670,7 +726,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_config</name>
+                            <name>dhcp.config:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -711,7 +767,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>DHCP_config</name>
+                            <name>dhcp.config:</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -724,11 +780,11 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>Discovery DHCP Pools</name>
-                    <type>7</type>
+                    <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>dhcp.pool.discovery</key>
-                    <delay>15m</delay>
+                    <key>dhcp.pools.discovery</key>
+                    <delay>2m</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -758,7 +814,7 @@
                             </condition>
                         </conditions>
                     </filter>
-                    <lifetime>3d</lifetime>
+                    <lifetime>1d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
@@ -793,7 +849,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>DHCP_pool</name>
+                                    <name>dhcp.pool.free:</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -807,8 +863,55 @@
                             <jmx_endpoint/>
                             <application_prototypes/>
                             <master_item_prototype>
-                                <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
+                                <key>dhcp.pool.json[{#DHCPPOOL}]</key>
                             </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>DHCP.pool.json: {#DHCPPOOL}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>dhcp.pool.json[{#DHCPPOOL}]</key>
+                            <delay>1m</delay>
+                            <history>1d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>dhcp.pool.js:</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>2</type>
+                                    <params>,</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>DHCP max: {#DHCPPOOL}</name>
@@ -840,7 +943,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>dhcp.pool.max:</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <preprocessing/>
@@ -880,10 +987,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>DHCP_%</name>
-                                </application>
-                                <application>
-                                    <name>DHCP_pool</name>
+                                    <name>dhcp.pool.use.%:</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -897,7 +1001,7 @@
                             <jmx_endpoint/>
                             <application_prototypes/>
                             <master_item_prototype>
-                                <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
+                                <key>dhcp.pool.json[{#DHCPPOOL}]</key>
                             </master_item_prototype>
                         </item_prototype>
                         <item_prototype>
@@ -932,7 +1036,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>DHCP_pool</name>
+                                    <name>dhcp.pool.stat.touch:</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -946,7 +1050,7 @@
                             <jmx_endpoint/>
                             <application_prototypes/>
                             <master_item_prototype>
-                                <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
+                                <key>dhcp.pool.json[{#DHCPPOOL}]</key>
                             </master_item_prototype>
                         </item_prototype>
                         <item_prototype>
@@ -979,11 +1083,7 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>DHCP_pool</name>
-                                </application>
-                            </applications>
+                            <applications/>
                             <valuemap/>
                             <logtimefmt/>
                             <preprocessing>
@@ -995,7 +1095,7 @@
                             <jmx_endpoint/>
                             <application_prototypes/>
                             <master_item_prototype>
-                                <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
+                                <key>dhcp.pool.json[{#DHCPPOOL}]</key>
                             </master_item_prototype>
                         </item_prototype>
                         <item_prototype>
@@ -1030,10 +1130,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>DHCP_pool</name>
-                                </application>
-                                <application>
-                                    <name>DHCP_use</name>
+                                    <name>dhcp.pool.use:</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -1047,63 +1144,16 @@
                             <jmx_endpoint/>
                             <application_prototypes/>
                             <master_item_prototype>
-                                <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
+                                <key>dhcp.pool.json[{#DHCPPOOL}]</key>
                             </master_item_prototype>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>DHCP_pool_json: {#DHCPPOOL}</name>
-                            <type>7</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>dhcpd.pool.json[{#DHCPPOOL}]</key>
-                            <delay>2m</delay>
-                            <history>1d</history>
-                            <trends>0</trends>
-                            <status>0</status>
-                            <value_type>4</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>DHCP_pool</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>2</type>
-                                    <params>,</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <application_prototypes/>
-                            <master_item_prototype/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App ISC-DHCPD server:dhcp.pool.percent[{#DHCPPOOL}].last()}&gt;90</expression>
+                            <expression>{Template App ISC-DHCPD server:dhcp.pool.use[{#DHCPPOOL}].max(30d)}=0 and {Template App ISC-DHCPD server:dhcp.pool.use[{#DHCPPOOL}].last(,30d)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>DHCP pool {#DHCPPOOL} использован на {ITEM.VALUE}</name>
+                            <name>DHCP pool &quot;{#DHCPPOOL}&quot;  not used for more than a 30 days</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
@@ -1111,7 +1161,28 @@
                             <priority>1</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>1</manual_close>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags>
+                                <tag>
+                                    <tag>service</tag>
+                                    <value>dhcp.pool</value>
+                                </tag>
+                            </tags>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App ISC-DHCPD server:dhcp.pool.percent[{#DHCPPOOL}].last()}&gt;{$DHCP_PERCENT_USE_WARN:&quot;{#DHCPPOOL}&quot;}</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>DHCP pool &quot;{#DHCPPOOL}&quot; used by more than {$DHCP_PERCENT_USE_WARN:&quot;{#DHCPPOOL}&quot;}%</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
                             <tags>
                                 <tag>
@@ -1128,42 +1199,21 @@
                             <expression>{Template App ISC-DHCPD server:dhcp.pool.free[{#DHCPPOOL}].max(#3)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>DHCP pool {#DHCPPOOL} исчерпан [свободно {ITEM.VALUE}]</name>
+                            <name>DHCP pool {#DHCPPOOL} исчерпан</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
-                            <priority>3</priority>
+                            <status>1</status>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>1</manual_close>
+                            <manual_close>0</manual_close>
                             <dependencies/>
                             <tags>
                                 <tag>
                                     <tag>dhcp.pool</tag>
                                     <value>{#DHCPPOOL}</value>
                                 </tag>
-                                <tag>
-                                    <tag>service</tag>
-                                    <value>dhcp.pool</value>
-                                </tag>
-                            </tags>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template App ISC-DHCPD server:dhcp.pool.use[{#DHCPPOOL}].max(7d)}=0 and {Template App ISC-DHCPD server:dhcp.pool.use[{#DHCPPOOL}].last(,7d)}=0</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>DHCP pool {#DHCPPOOL} не используется больше 7 дней</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url/>
-                            <status>0</status>
-                            <priority>0</priority>
-                            <description/>
-                            <type>0</type>
-                            <manual_close>1</manual_close>
-                            <dependencies/>
-                            <tags>
                                 <tag>
                                     <tag>service</tag>
                                     <value>dhcp.pool</value>
@@ -1254,7 +1304,12 @@
                 </discovery_rule>
             </discovery_rules>
             <httptests/>
-            <macros/>
+            <macros>
+                <macro>
+                    <macro>{$DHCP_PERCENT_USE_WARN}</macro>
+                    <value>90</value>
+                </macro>
+            </macros>
             <templates/>
             <screens>
                 <screen>
