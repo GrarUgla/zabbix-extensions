@@ -784,7 +784,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>dhcp.pools.discovery</key>
-                    <delay>2m</delay>
+                    <delay>15m</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
